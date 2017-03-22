@@ -1,18 +1,17 @@
 import { LayoutComponent } from '../layout/layout.component';
 
 import { HomeComponent } from './home/home.component';
+import { ItemComponent } from './item/item.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
-const routes = [
-  {
+const routes = [{
     path: '',
     component: LayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      // { path: 'diagnostics', component: DiagnosticsComponent },
-      // { path: 'references', component: ReferencesComponent },
-      // { path: 'details/:id', component: DetailsComponent },
-      // { path: 'maps', component: MapsComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'item/:id', component: ItemComponent },
       { path: '**', redirectTo: 'home' }
     ]
 

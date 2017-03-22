@@ -1,0 +1,40 @@
+<div class="page">
+  <div class="panel panel-default">
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/']"><i class="icon-home"></i> Home</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']"> <b>Item</b></a>
+      </li>
+      <li class="active">
+        <a [routerLink]="['/']"> {{item.mi_menu_name}}</a>
+      </li>
+    </ol>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="http://lorempixel.com/400/400/food/{{item.id}}" class="img-responsive" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h3>{{item.mi_menu_name}}</h3>
+          <h4>Price: ${{item.mi_price}}</h4>
+          <div class="well">
+            {{item.mi_menu_description}}
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <form role="form">
+                <div class="form-group">
+                  <label for="">Qty: </label>
+                  <input [(ngModel)]="item.qty" type="number" name="qty" class="form-control" min="1" />
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="order()">Order</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

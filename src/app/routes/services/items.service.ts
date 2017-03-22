@@ -26,7 +26,7 @@ export class ItemsService {
   };
 
   getItemId(id: number) {
-    return this.http.get(`${AppSettings.ApiEndpoint}menuitems`)
+    return this.http.get(`${AppSettings.ApiEndpoint}menuitems/${id}`)
       .map((res: Response) => res.json());
   };
 

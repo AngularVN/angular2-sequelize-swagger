@@ -6,6 +6,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { MenuService } from '../core/menu/menu.service';
 
 import { HomeComponent } from './home/home.component';
+import { ItemComponent } from './item/item.component';
+import { PaymentComponent } from './payment/payment.component';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -20,12 +22,16 @@ import appRoutes from './routes';
   ],
   declarations: [
     HomeComponent,
+    ItemComponent,
+    PaymentComponent,
   ],
   providers: [],
   exports: [
     RouterModule,
     InfiniteScrollModule,
     HomeComponent,
+    ItemComponent,
+    PaymentComponent,
   ]
 })
 
