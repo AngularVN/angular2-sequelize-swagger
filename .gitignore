@@ -1,0 +1,19 @@
+# .gitignore file
+
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+.DS_Store
+
+public
+node_modules
+.tmp
+example.sqlite
+npm-debug.log

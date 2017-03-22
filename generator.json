@@ -1,0 +1,59 @@
+{
+  "baseName": "ordercharge",
+  "databaseType": "sqlite",
+  "hostName": "localhost",
+  "databaseName": "/tmp/example.sqlite",
+  "userName": "username",
+  "password": "password",
+  "authenticate": false,
+  "entities": [{
+    "name": "menu_items",
+    "attrs": [{
+      "attrName": "mi_menu_name",
+      "attrType": "String",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }, {
+      "attrName": "mi_menu_description",
+      "attrType": "Text",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }, {
+      "attrName": "mi_image",
+      "attrType": "Integer",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }, {
+      "attrName": "mi_price",
+      "attrType": "String",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }, {
+      "attrName": "mi_category_id",
+      "attrType": "Integer",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }]
+  }, {
+    "name": "menu_categories",
+    "attrs": [{
+      "attrName": "mc_category",
+      "attrType": "String",
+      "min": "",
+      "max": "",
+      "enumValues": [],
+      "required": false
+    }]
+  }],
+  "composer": false
+}
