@@ -8,6 +8,7 @@ import { MenuService } from '../core/menu/menu.service';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './item/item.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CategoryComponent } from './category/category.component';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -23,7 +24,8 @@ import appRoutes from './routes';
   declarations: [
     HomeComponent,
     ItemComponent,
-    PaymentComponent,
+    CategoryComponent,
+    PaymentComponent
   ],
   providers: [],
   exports: [
@@ -31,12 +33,11 @@ import appRoutes from './routes';
     InfiniteScrollModule,
     HomeComponent,
     ItemComponent,
-    PaymentComponent,
+    CategoryComponent,
+    PaymentComponent
   ]
 })
 
 export class RoutesModule {
-  constructor(private menu: MenuService) {
-    menu.addMenu(appMenu);
-  }
+
 }

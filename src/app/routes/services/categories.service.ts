@@ -14,6 +14,7 @@ export class CategoriesService {
 
     params.set('page', String(page));
     params.set('limit', String(limit));
+
     if (order && order !== '') {
       params.set('order', order);
     }

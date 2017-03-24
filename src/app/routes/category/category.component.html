@@ -1,0 +1,18 @@
+<div class="page">
+  <div class="panel panel-default">
+    <ol class="breadcrumb">
+      <li class="active">
+        <a [routerLink]="['/']"><i class="icon-home"></i> Home</a>
+      </li>
+    </ol>
+    <div class="panel-body">
+      <div class="row">
+        <div *ngFor="let item of items.results" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <a href="#/item/{{item.id}}"><img src="//lorempixel.com/400/400/food/{{item.id}}" class="img-responsive">
+            <h4 class="bg-gray-light">{{item.mi_menu_name}} <b>${{item.mi_price}}</b></h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

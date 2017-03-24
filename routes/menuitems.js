@@ -17,14 +17,41 @@ var db = require('../models'),
  *      responseClass: MenuItems
  *      consumes:
  *        - application/json
+ *      parameters:
+ *        - name: page
+ *          paramType: query
+ *          type: integer
+ *          required: false
+ *          description: Number of page
+ *        - name: limit
+ *          paramType: query
+ *          type: integer
+ *          required: false
+ *          description: Limit on per page
+ *        - name: sort
+ *          paramType: query
+ *          type: string
+ *          required: false
+ *          description: Sort by column name
+ *        - name: order
+ *          paramType: query
+ *          type: string
+ *          required: false
+ *          description: order by asc or desc
+ *        - name: category
+ *          paramType: query
+ *          type: integer
+ *          required: false
+ *          description: ID of Categories
  */
- exports.findAll = function(req, res) {
+exports.findAll = function(req, res) {
   var q = req.query.q || "",
     sort = req.query.sort || "id",
     order = req.query.order || "asc",
     page = parseInt(req.query.page) || 1,
     limit = parseInt(req.query.limit) || 20,
     group = req.query.group || "",
+    category = req.query.category || "",
     offset = ((page - 1) * limit),
     query = {
       order: sort + ' ' + order,
@@ -38,9 +65,14 @@ var db = require('../models'),
     }, query);
   };
 
+  if (category) {
+    query = _.extend({
+      where: [{ mi_category_id: category }]
+    }, query);
+  };
   if (q) {
     query = _.extend({
-    where: ["CONCAT(MiMenuName, MiMenuDescription, MiPrice) LIKE '%" + q + "%'"]
+      where: ["CONCAT(MiMenuName, MiMenuDescription, MiPrice) LIKE '%" + q + "%'"]
     }, query);
   };
 

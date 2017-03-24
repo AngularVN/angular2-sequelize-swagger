@@ -9,11 +9,14 @@ export class ItemsService {
 
   constructor(private http: Http) {}
 
-  getItems(page = 1, limit = 10, sort ? : string, order ? : string) {
+  getItems(page = 1, limit = 10, category ? : number, sort ? : string, order ? : string) {
     let params = new URLSearchParams();
 
     params.set('page', String(page));
     params.set('limit', String(limit));
+    if (category > 0) {
+      params.set('category', String(category));
+    }
     if (order && order !== '') {
       params.set('order', order);
     }

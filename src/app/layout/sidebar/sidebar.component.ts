@@ -4,20 +4,51 @@ import { SettingsService } from '../../core/settings/settings.service';
 import { Router } from '@angular/router';
 declare var $: any;
 
+import { CategoriesService } from './../../routes/services/categories.service';
+
 @Component({
   selector: 'app-sidebar',
+  providers: [CategoriesService],
   templateUrl: 'app/layout/sidebar/sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
 
   menuItems: Array < any > ;
+  public menus: Array < any > ;
   router: Router;
 
-  constructor(private menu: MenuService, public settings: SettingsService, private injector: Injector) {
+  constructor(private menu: MenuService, public settings: SettingsService, private injector: Injector, private categoriesservice: CategoriesService) {
+    this.menuItems = [{
+      text: 'Dashboard',
+      heading: true
+    }, {
+      text: 'Categories',
+      link: '/admin/categories',
+      icon: 'icon-list'
+    }, {
+      text: 'Items',
+      link: '/admin/items',
+      icon: 'icon-docs'
+    }, {
+      text: 'Client',
+      heading: true
+    }, {
+      text: 'Home',
+      link: '/home',
+      icon: 'icon-home'
+    }];
+    this.categoriesservice.getCategories().subscribe(
+      res => {
+        let categories: any = res.results;
+        categories.forEach((item) => {
+          this.menuItems.push({ text: item.mc_category, link: `/category/${item.id}`, icon: 'icon-tag' });
+        });
+      },
+      err => console.log(err)
+    );
+   }
+  // this.menuItems = menu.getMenu();
 
-    this.menuItems = menu.getMenu();
-
-  }
 
   ngOnInit() {
 
