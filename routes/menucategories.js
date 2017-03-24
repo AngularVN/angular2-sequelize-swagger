@@ -208,6 +208,6 @@ exports.destroy = function(req, res) {
  *   MenuCategories:
  *     type: object
  *     properties:
- *       McCategory:
+ *       mc_category:
  *         type: String
  */

@@ -1,3 +1,4 @@
+var production = (process.env.NODE_ENV === 'production');
 var express = require('express');
 var swagger = require('swagger-express');
 var cors = require('cors')
@@ -46,7 +47,7 @@ app.use(swagger.init(app, {
   swaggerURL: '/swagger',
   swaggerJSON: '/api-docs.json',
   swaggerUI: './public/swagger/',
-  basePath: 'http://localhost:3000',
+  basePath: production ? 'https://warm-plateau-49175.herokuapp.com' : 'http://localhost:3000',
   info: {
     title: 'swagger-express sample app',
     description: 'Swagger + Express = {swagger-express}'

@@ -9,60 +9,65 @@
       </li>
     </ol>
     <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{item.mi_menu_name}}</td>
+              <td>${{item.mi_price}}</td>
+              <td>{{item.qty}}</td>
+              <td>{{ item.qty * item.mi_price }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="row">
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{item.mi_menu_name}}</td>
-                <td>${{item.mi_price}}</td>
-                <td>{{item.qty}}</td>
-                <td><b>${{ item.qty * item.mi_price}}</b></td>
-              </tr>
-              <tr>
-                <td colspan="4">
-                  <form role="form">
-                    <div class="form-group">
-                      <legend>Payment</legend>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Card Number</label>
-                      <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="">CTR Number</label>
-                      <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Name on Card</label>
-                      <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Card Type</label>
-                      <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Expiry Date</label>
-                      <input type="text" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-10 col-sm-offset-2">
-                        <button type="submit" class="btn btn-primary">Payment</button>
-                      </div>
-                    </div>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+          <form id="payment-form" (submit)="getCardData(number.value, month.value,year.value,cvc.value)" class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="cardName">NAME ON CARD</label>
+                <input #namecard type="text" class="form-control" id="cardName" placeholder="Name on Card" required autofocus />
+              </div>
+              <div class="col-xs-6">
+                <label for="cardNumber">CARD NUMBER</label>
+                <input #number type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-6 col-md-6">
+                <label for="expMonth">EXPIRATION DATE</label>
+                <div class="row">
+                  <div class="col-xs-4 col-lg-2 pl-ziro">
+                    <input #month type="text" class="form-control" id="expMonth" placeholder="MM" required data-stripe="exp_month" />
+                  </div>
+                  <div class="col-xs-8 col-lg-4 pl-ziro">
+                    <input #year type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-md-6">
+                <label for="cvCode">CV CODE</label>
+                <input #cvc type="password" class="form-control" id="cvCode" placeholder="CV" required data-stripe="cvc" />
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <button class="btn btn-success btn-lg btn-block" type="submit">Use This Card</button>
+            </div>
+            <div class="row" style="display:none;">
+              <div class="col-xs-12">
+                <p class="payment-errors"></p>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

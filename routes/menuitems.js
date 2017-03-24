@@ -208,14 +208,14 @@ exports.destroy = function(req, res) {
  *   MenuItems:
  *     type: object
  *     properties:
- *       MiMenuName:
+ *       mi_menu_name:
  *         type: String
- *       MiMenuDescription:
- *         type: Text
- *       MiImage:
- *         type: Integer
- *       MiPrice:
+ *       mi_menu_description:
  *         type: String
- *       MiCategoryId:
+ *       mi_image:
+ *         type: String
+ *       mi_price:
+ *         type: String
+ *       mi_category_id:
  *         type: Integer
  */

@@ -15,5 +15,5 @@ Icon
 public
 node_modules
 .tmp
-example.sqlite
+
 npm-debug.log

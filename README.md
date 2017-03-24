@@ -15,3 +15,11 @@ npm run mirage
 npm run seed
 npm start
 ```
+
+
+## Push to heroku
+
+```
+heroku create
+git push heroku master
+```
