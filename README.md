@@ -11,7 +11,7 @@
 git clone https://github.com/AngularVN/angular2-sequelize-swagger.git
 cd angular2-sequelize-swagger
 npm i
-npm run mirage
+npm run migrate
 npm run seed
 npm start
 ```
@@ -23,7 +23,7 @@ Create new a database mysql. Then edit config/config.json ...
 export NODE_ENV=stage
 cd angular2-sequelize-swagger
 npm i
-npm run mirage
+npm run migrate
 npm run seed
 npm start
 ```
