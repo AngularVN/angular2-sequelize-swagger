@@ -15,7 +15,18 @@ npm run mirage
 npm run seed
 npm start
 ```
+## Deploy with MySQL
 
+Create new a database mysql. Then edit config/config.json ...
+
+```
+export NODE_ENV=stage
+cd angular2-sequelize-swagger
+npm i
+npm run mirage
+npm run seed
+npm start
+```
 
 ## Push to heroku
 
