@@ -6,7 +6,7 @@
     "host": "example.sqlite",
     "dialect": "sqlite"
   },
-  "test": {
+  "stage": {
     "username": "root",
     "password": null,
     "database": "database_test",
