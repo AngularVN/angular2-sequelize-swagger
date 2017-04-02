@@ -25,6 +25,7 @@ cd angular2-sequelize-swagger
 npm i
 npm run migrate
 npm run seed
+npm run build
 npm start
 ```
 
