@@ -28,6 +28,13 @@ npm run seed
 npm start
 ```
 
+## Start WWW with port 80
+```
+export PORT=80
+npm start
+```
+
+
 ## Push to heroku
 
 ```
